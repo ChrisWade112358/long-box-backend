@@ -19,6 +19,7 @@ class Api::V1::UsersController < ApplicationController
         )
 
         if user
+            Collection.create!(user.id)
             @token = encode_token(user_id: user.id)
             render json: {
                 user: user, jwt: @token

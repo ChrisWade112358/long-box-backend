@@ -6,7 +6,7 @@ class ComicsController < ApplicationController
 
     def addComic
         Comic.create!(
-            user: params[:comic][:userId]
+            
             title: params[:comic][:title],
             issueNumber: params[:comic][:issueNumber],
             imageURL: params[:comic][:imageURL],
@@ -16,5 +16,12 @@ class ComicsController < ApplicationController
             pageCount: params[:comic][:pageCount]
 
         )
+        if comic
+            render json: {
+                user: comic
+            }, status: :created
+        else
+            render json: { status: 500 }
+        end
     end
 end
