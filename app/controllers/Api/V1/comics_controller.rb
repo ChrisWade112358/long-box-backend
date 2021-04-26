@@ -1,4 +1,4 @@
-class ComicsController < ApplicationController
+class Api::V1::ComicsController < ApplicationController
 
     def def index
         comics = Comic.all

@@ -1,5 +1,5 @@
-class CollectionsController < ApplicationController
-    def addComics
+class Api::V1::CollectionsController < ApplicationController
+    def update
         binding.pry
         collection = Collection.find_by(user_id: params[:userId])
         comic = Comic.find_by(comicId: params[:comic][:comicId])
